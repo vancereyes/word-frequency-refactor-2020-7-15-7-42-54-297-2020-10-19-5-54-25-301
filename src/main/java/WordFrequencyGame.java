@@ -13,11 +13,7 @@ public class WordFrequencyGame {
             try {
                 String[] wordList = sentence.split(WHITE_SPACE);
 
-                List<WordInfo> wordInfoList = new ArrayList<>();
-                for (String word : wordList) {
-                    WordInfo wordInfo = new WordInfo(word, 1);
-                    wordInfoList.add(wordInfo);
-                }
+                List<WordInfo> wordInfoList = getWordInfos(wordList);
 
                 Map<String, List<WordInfo>> WordInfoMap = getListMap(wordInfoList);
 
@@ -42,6 +38,15 @@ public class WordFrequencyGame {
                 return "Calculate Error";
             }
         }
+    }
+
+    private List<WordInfo> getWordInfos(String[] wordList) {
+        List<WordInfo> wordInfoList = new ArrayList<>();
+        for (String word : wordList) {
+            WordInfo wordInfo = new WordInfo(word, 1);
+            wordInfoList.add(wordInfo);
+        }
+        return wordInfoList;
     }
 
 
